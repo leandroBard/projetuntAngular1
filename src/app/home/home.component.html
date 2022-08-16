@@ -1,0 +1,23 @@
+<p>{{title}}</p>
+<input type="text" [(ngModel)]="title" [class]="classInput">
+<button [disabled]="modificado" (click)="cambiarTitle()">Cambiar Title</button>
+<div>
+    <input type="number" [(ngModel)]="op1">
+    <input type="number" [(ngModel)]="op2">
+    <button (click)="calcular()">Calcular</button>
+    <div [ngClass]="{ok:resultado>0,error:resultado<0}">resultado: {{resultado}}</div>
+    <div *ngIf="resultado>0">Bien resultado positivo!</div>
+    <div [hidden]="resultado<=0">Bien resultado positivo!</div>
+</div>
+<h1>Productos</h1>
+<div>
+    <div *ngFor="let producto of productos">
+        <h2>{{producto.title}}</h2>
+        <p>{{producto.price}}</p>
+    </div>
+    <button (click)="add()">Filtrar</button>
+    <div *ngFor="let categoria of categorias">
+        {{categoria}}
+    </div>
+</div>
+<app-banners></app-banners>
